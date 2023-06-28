@@ -1,0 +1,33 @@
+/*
+ * Complete the 'miniMaxSum' function below.
+ *
+ * The function accepts INTEGER_ARRAY arr as parameter.
+ */
+
+void miniMaxSum(vector<int> arr) {
+    vector<int64_t> Sums;
+    
+    for (int i = 0; i < arr.size(); i++){
+        int64_t  SumEvexci = 0;
+        for (int j = 0; j < arr.size(); j++){
+            if (j != i){
+                SumEvexci += arr[j];                
+            }    
+        }Sums.push_back(SumEvexci);
+    }
+    
+    int64_t miniSum = Sums[0];
+    int64_t maxiSum = Sums[0];
+    
+    for (int i = 0; i < Sums.size(); i++){
+        // std::cout << std::to_string(Sums[i]) + ", ";
+        if (Sums[i] < miniSum){
+            miniSum =  Sums[i];
+        }if (Sums[i] > maxiSum){
+            maxiSum =  Sums[i];
+        }
+    }
+    
+    std::cout << std::to_string(miniSum) + " " + std::to_string(maxiSum) << endl;
+    // miniSum = max_element(Sums.begin(), Sums.end());
+}
